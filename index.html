@@ -14,12 +14,7 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.7; overflow-x: hidden; }
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 1.2rem 3rem; background: rgba(13,13,13,0.85);
-    backdrop-filter: blur(12px); border-bottom: 1px solid var(--border);
-  }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 3rem; background: rgba(13,13,13,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
   .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.3rem; letter-spacing: 0.03em; color: var(--gold); text-decoration: none; }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.88rem; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.25s; }
@@ -41,15 +36,7 @@
   .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
   .hero-photo-wrap { position: relative; display: flex; justify-content: center; }
   .hero-photo-frame { width: 340px; height: 400px; border-radius: 160px 160px 120px 120px; background: var(--bg3); border: 1px solid var(--border); overflow: hidden; position: relative; }
-  .hero-photo-frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-}
-  .photo-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; color: var(--muted); }
-  .photo-placeholder svg { opacity: 0.3; }
-  .photo-placeholder span { font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; }
+  .hero-photo-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
   .hero-accent-ring { position: absolute; width: 380px; height: 440px; border-radius: 180px 180px 140px 140px; border: 1px solid rgba(201,168,76,0.2); top: -20px; left: 50%; transform: translateX(-50%); pointer-events: none; }
   .stats-row { display: flex; gap: 2.5rem; margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border); }
   .stat-num { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--gold); line-height: 1; }
@@ -86,7 +73,6 @@
   .timeline-org { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.5rem; }
   .timeline-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
   .badge { display: inline-block; padding: 0.2rem 0.7rem; border-radius: 20px; font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.5rem; background: rgba(201,168,76,0.12); color: var(--gold); border: 1px solid rgba(201,168,76,0.3); }
-  .badge-star { background: rgba(201,168,76,0.2); }
   .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
   .skill-name { font-size: 0.82rem; color: var(--text); margin-bottom: 0.4rem; display: flex; justify-content: space-between; }
   .skill-name span { color: var(--gold); }
@@ -97,20 +83,26 @@
   .cert-item:last-child { border-bottom: none; }
   .cert-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); margin-top: 0.5rem; flex-shrink: 0; }
   .cert-star { color: var(--gold); font-size: 0.75rem; margin-left: auto; white-space: nowrap; padding-left: 0.5rem; }
-  #gallery { }
   .gallery-tabs { display: flex; gap: 0; margin-bottom: 2.5rem; border: 1px solid var(--border); border-radius: 40px; width: fit-content; overflow: hidden; }
   .gtab { padding: 0.5rem 1.5rem; background: transparent; border: none; color: var(--muted); font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: background 0.2s, color 0.2s; font-family: 'DM Sans', sans-serif; }
   .gtab.active { background: var(--gold); color: #000; }
   .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; }
   .gallery-item { aspect-ratio: 1; background: var(--bg3); border-radius: var(--radius); border: 1px solid var(--border); overflow: hidden; position: relative; cursor: pointer; transition: transform 0.25s; }
   .gallery-item:hover { transform: scale(1.02); }
-  .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
-  .gallery-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; color: var(--muted); }
-  .gallery-placeholder .icon { font-size: 2rem; opacity: 0.3; }
-  .gallery-placeholder span { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.5; }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .gallery-item-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.6); display: flex; align-items: flex-end; padding: 1rem; opacity: 0; transition: opacity 0.25s; }
   .gallery-item:hover .gallery-item-overlay { opacity: 1; }
   .gallery-item-label { font-size: 0.8rem; color: var(--text); }
+  /* Lightbox */
+  .lightbox { display: none; position: fixed; inset: 0; z-index: 999; background: rgba(0,0,0,0.93); align-items: center; justify-content: center; }
+  .lightbox.open { display: flex; }
+  .lightbox img { max-width: 88vw; max-height: 88vh; border-radius: 8px; object-fit: contain; }
+  .lb-close { position: absolute; top: 1.2rem; right: 1.5rem; font-size: 2rem; color: var(--muted); cursor: pointer; background: none; border: none; line-height: 1; }
+  .lb-close:hover { color: var(--gold); }
+  .lb-caption { position: absolute; bottom: 1.5rem; left: 50%; transform: translateX(-50%); color: var(--muted); font-size: 0.85rem; letter-spacing: 0.08em; white-space: nowrap; }
+  .lb-nav { position: absolute; top: 50%; transform: translateY(-50%); background: none; border: 1px solid var(--border); color: var(--text); font-size: 1.3rem; width: 46px; height: 46px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+  .lb-nav:hover { border-color: var(--gold); color: var(--gold); }
+  .lb-prev { left: 1.2rem; } .lb-next { right: 1.2rem; }
   #thoughts { background: var(--bg2); max-width: 100%; padding: 6rem 0; }
   #thoughts .inner { max-width: 1100px; margin: 0 auto; padding: 0 3rem; }
   .thoughts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
@@ -131,15 +123,16 @@
   footer { text-align: center; padding: 2rem 3rem; border-top: 1px solid var(--border); font-size: 0.8rem; color: var(--muted); }
   @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
   .fadeup { animation: fadeUp 0.7s ease both; }
-  .d1 { animation-delay: 0.1s; } .d2 { animation-delay: 0.25s; } .d3 { animation-delay: 0.4s; } .d4 { animation-delay: 0.55s; }
-  @media (max-width: 768px) {
-    nav { padding: 1rem 1.5rem; } .nav-links { display: none; }
-    section { padding: 4rem 1.5rem; } #resume, #thoughts { padding: 4rem 0; }
-    #resume .inner, #thoughts .inner { padding: 0 1.5rem; }
-    .hero-grid { grid-template-columns: 1fr; gap: 2rem; padding-top: 2rem; }
-    .hero-photo-wrap { order: -1; } .hero-photo-frame { width: 200px; height: 240px; margin: 0 auto; }
-    .hero-accent-ring { display: none; } .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    .resume-grid { grid-template-columns: 1fr; } #hero { padding: 5rem 1.5rem 3rem; }
+  .d1{animation-delay:0.1s}.d2{animation-delay:0.25s}.d3{animation-delay:0.4s}.d4{animation-delay:0.55s}
+  @media(max-width:768px){
+    nav{padding:1rem 1.5rem}.nav-links{display:none}
+    section{padding:4rem 1.5rem}#resume,#thoughts{padding:4rem 0}
+    #resume .inner,#thoughts .inner{padding:0 1.5rem}
+    .hero-grid{grid-template-columns:1fr;gap:2rem;padding-top:2rem}
+    .hero-photo-wrap{order:-1}.hero-photo-frame{width:200px;height:240px;margin:0 auto}
+    .hero-accent-ring{display:none}.about-grid{grid-template-columns:1fr;gap:2.5rem}
+    .resume-grid{grid-template-columns:1fr}#hero{padding:5rem 1.5rem 3rem}
+    .lb-nav{display:none}
   }
 </style>
 </head>
@@ -164,33 +157,21 @@
     <div>
       <p class="hero-eyebrow fadeup d1">Implementation Specialist · Creative Soul</p>
       <h1 class="fadeup d2">Hello, I'm<br><em>Marupaka Anusha</em></h1>
-      <p class="hero-desc fadeup d3">
-        Implementation Specialist with 2+ years of experience driving client success, managing data, and building solutions — with a creative side in painting, photography &amp; art.
-      </p>
+      <p class="hero-desc fadeup d3">Implementation Specialist with 2+ years of experience driving client success, managing data, and building solutions — with a creative side in painting, photography &amp; art.</p>
       <div class="hero-btns fadeup d4">
         <a href="#resume" class="btn-primary">View Resume</a>
         <a href="#gallery" class="btn-ghost">See My Art</a>
       </div>
       <div class="stats-row fadeup d4">
-        <div class="stat-item">
-          <div class="stat-num">2+</div>
-          <div class="stat-label">Years Experience</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num">6+</div>
-          <div class="stat-label">Internships</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num">24+</div>
-          <div class="stat-label">Certifications</div>
-        </div>
+        <div class="stat-item"><div class="stat-num">2+</div><div class="stat-label">Years Experience</div></div>
+        <div class="stat-item"><div class="stat-num">6+</div><div class="stat-label">Internships</div></div>
+        <div class="stat-item"><div class="stat-num">24+</div><div class="stat-label">Certifications</div></div>
       </div>
     </div>
     <div class="hero-photo-wrap fadeup d3">
       <div class="hero-accent-ring"></div>
-     <div class="hero-photo-frame">
-  <img src="profile.jpg" alt="Marupaka Anusha">
-</div>
+      <div class="hero-photo-frame">
+        <img src="profile.jpg" alt="Marupaka Anusha">
       </div>
     </div>
   </div>
@@ -203,7 +184,13 @@
   <div class="about-grid">
     <div class="about-photo-side">
       <div class="about-photo-frame">
-<img src="Drawing photo 15.jpeg" alt="Anusha casual photo">
+        <!-- CASUAL PHOTO: upload your photo to GitHub and change the filename below -->
+        <img src="casual-photo.jpeg" alt="Anusha"
+             onerror="this.style.display='none'; document.getElementById('about-placeholder').style.display='flex';">
+        <div id="about-placeholder" style="display:none; width:100%; height:100%; align-items:center; justify-content:center; flex-direction:column; gap:1rem; color:#8a8580;">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <span style="font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;">Upload casual-photo.jpeg</span>
+        </div>
       </div>
       <div class="about-accent-card">
         <div class="num">Hyderabad</div>
@@ -212,24 +199,13 @@
     </div>
     <div class="about-body">
       <h3>Passionate problem-solver,<br>creative at heart.</h3>
-      <p>
-        I'm an Implementation Specialist passionate about solving business challenges, driving client success, and creating value through innovative solutions. A natural multitasker, I thrive managing complex projects while continuously learning and growing.
-      </p>
-      <p>
-        My journey has taken me across data research, UI design, HR, content writing, social media, and client implementation — across both startups and growing companies. I love wearing many hats and making a real impact wherever I go.
-      </p>
-      <p style="color: var(--text);">
-        Beyond work, I find deep joy in painting, drawing, photography, and reading books. This website is a reflection of all of that — my professional journey and creative soul, together in one place.
-      </p>
+      <p>I'm an Implementation Specialist passionate about solving business challenges, driving client success, and creating value through innovative solutions. A natural multitasker, I thrive managing complex projects while continuously learning and growing.</p>
+      <p>My journey has taken me across data research, UI design, HR, content writing, social media, and client implementation — across both startups and growing companies. I love wearing many hats and making a real impact wherever I go.</p>
+      <p style="color:var(--text);">Beyond work, I find deep joy in painting, drawing, photography, and reading books. This website is a reflection of all of that — my professional journey and creative soul, together in one place.</p>
       <div class="interests-tags">
-        <span class="tag">🎨 Painting</span>
-        <span class="tag">✏️ Drawing</span>
-        <span class="tag">📷 Photography</span>
-        <span class="tag">📚 Reading Books</span>
-        <span class="tag">💻 Web Design</span>
-        <span class="tag">✍️ Content Writing</span>
-        <span class="tag">💡 Problem Solving</span>
-        <span class="tag">🌿 Nature</span>
+        <span class="tag">🎨 Painting</span><span class="tag">✏️ Drawing</span><span class="tag">📷 Photography</span>
+        <span class="tag">📚 Reading Books</span><span class="tag">💻 Web Design</span><span class="tag">✍️ Content Writing</span>
+        <span class="tag">💡 Problem Solving</span><span class="tag">🌿 Nature</span>
       </div>
     </div>
   </div>
@@ -241,9 +217,7 @@
     <p class="section-tag">Professional</p>
     <h2>My <em>Experience &amp; Skills</em></h2>
     <p class="section-sub">From training to real-world impact — my full professional journey.</p>
-
     <div class="resume-grid">
-      <!-- LEFT COL: Experience + Internships -->
       <div>
         <div class="resume-col" style="margin-bottom:2.5rem">
           <h3>💼 Work Experience</h3>
@@ -262,7 +236,6 @@
             <div class="timeline-desc">Supported implementation workflows, assisted with client data management, and contributed to internal process improvements. Recognised for outstanding performance during this tenure.</div>
           </div>
         </div>
-
         <div class="resume-col">
           <h3>🚀 Internships</h3>
           <div class="timeline-item">
@@ -281,7 +254,7 @@
             <div class="timeline-date">Diploma · 6 Months</div>
             <div class="timeline-title">Electrical Trainee</div>
             <div class="timeline-org">CESS Pvt Ltd · Vemulawada</div>
-            <div class="timeline-desc">Industrial training in electrical systems with hands-on technical experience in a professional environment.</div>
+            <div class="timeline-desc">Industrial training in electrical systems with hands-on technical experience.</div>
           </div>
           <div class="timeline-item">
             <div class="timeline-date">Additional</div>
@@ -291,8 +264,6 @@
           </div>
         </div>
       </div>
-
-      <!-- RIGHT COL: Education + Skills + Certs -->
       <div>
         <div class="resume-col" style="margin-bottom:2.5rem">
           <h3>🎓 Education</h3>
@@ -315,7 +286,6 @@
             <div class="timeline-desc">83%</div>
           </div>
         </div>
-
         <div class="resume-col" style="margin-bottom:2.5rem">
           <h3>⚡ Skills</h3>
           <div class="skills-grid">
@@ -329,11 +299,10 @@
             <div><div class="skill-name">SQL / Java <span>70%</span></div><div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div></div>
           </div>
         </div>
-
         <div class="resume-col">
-          <h3>🏆 Certifications <span style="font-size:0.8rem; color:var(--muted); font-family:'DM Sans',sans-serif; font-weight:300;">(24+ total)</span></h3>
+          <h3>🏆 Certifications <span style="font-size:0.8rem;color:var(--muted);font-family:'DM Sans',sans-serif;font-weight:300;">(24+ total)</span></h3>
           <div class="cert-list">
-            <div class="cert-item"><div class="cert-dot"></div>Outstanding Performance Spot Award <div class="cert-star">⭐ Track 3D</div></div>
+            <div class="cert-item"><div class="cert-dot"></div>Outstanding Performance Spot Award<div class="cert-star">⭐ Track 3D</div></div>
             <div class="cert-item"><div class="cert-dot"></div>Outstanding Performance Quarterly Award<div class="cert-star">⭐ Track 3D</div></div>
             <div class="cert-item"><div class="cert-dot"></div>Fundamentals of Digital Marketing — Google Digital Garage</div>
             <div class="cert-item"><div class="cert-dot"></div>Soft Skills Completion Certificate — TCS</div>
@@ -344,8 +313,7 @@
         </div>
       </div>
     </div>
-
-    <div style="margin-top:2.5rem; text-align:center;">
+    <div style="margin-top:2.5rem;text-align:center;">
       <a href="Anusha_Resume.pdf" download class="btn-primary">↓ Download Full Resume (PDF)</a>
     </div>
   </div>
@@ -354,138 +322,146 @@
 <!-- GALLERY -->
 <section id="gallery">
   <p class="section-tag">Creative Work</p>
-  <h2>Photos &amp; <em>Paintings</em></h2>
+  <h2>Drawings &amp; <em>Paintings</em></h2>
   <p class="section-sub">A visual diary — moments I've captured and worlds I've painted.</p>
   <div class="gallery-tabs">
-    <button class="gtab active" onclick="filterGallery('all', this)">All</button>
-    <button class="gtab" onclick="filterGallery('photo', this)">Photos</button>
-    <button class="gtab" onclick="filterGallery('painting', this)">Paintings</button>
+    <button class="gtab active" onclick="filterGallery('all',this)">All</button>
+    <button class="gtab" onclick="filterGallery('drawing',this)">Drawings</button>
+    <button class="gtab" onclick="filterGallery('painting',this)">Paintings</button>
   </div>
-<div class="gallery-grid" id="gallery-grid">
+  <div class="gallery-grid" id="gallery-grid">
 
-  <!-- DRAWINGS -->
-  <div class="gallery-item" data-type="painting">
-    <img src="ART 23.jpeg" alt="Art 23">
-    <div class="gallery-item-overlay"><div class="gallery-item-label">Art 23</div></div>
-  </div>
-  <div class="gallery-item" data-type="painting">
-    <img src="Drawing 24.jpeg" alt="Drawing 24">
-    <div class="gallery-item-overlay"><div class="gallery-item-label">Drawing 24</div></div>
-  </div>
-  <div class="gallery-item" data-type="painting">
-    <img src="Drawing photo 15.jpeg" alt="Drawing 15">
-    <div class="gallery-item-overlay"><div class="gallery-item-label">Drawing 15</div></div>
-  </div>
-  <div class="gallery-item" data-type="painting">
-    <img src="Drawing photo 16.jpeg" alt="Drawing 16">
-    <div class="gallery-item-overlay"><div class="gallery-item-label">Drawing 16</div></div>
-  </div>
-  <div class="gallery-item" data-type="painting">
-    <img src="Drawing photo 17.jpeg" alt="Drawing 17">
-    <div class="gallery-item-overlay"><div class="gallery-item-label">Drawing 17</div></div>
-  </div>
-  <div class="gallery-item" data-type="painting">
-    <img src="Drawing photo 18.jpeg" alt="Drawing 18">
-    <div class="gallery-item-overlay"><div class="gallery-item-label">Drawing 18</div></div>
-  </div>
-  <div class="gallery-item" data-type="painting">
-    <img src="Drawing photo12.jpeg" alt="Drawing 12">
-    <div class="gallery-item-overlay"><div class="gallery-item-label">Drawing 12</div></div>
-  </div>
-  <div class="gallery-item" data-type="painting">
-    <img src="Drawing photo26.jpeg" alt="Drawing 26">
-    <div class="gallery-item-overlay"><div class="gallery-item-label">Drawing 26</div></div>
-  </div>
-  <div class="gallery-item" data-type="painting">
-    <img src="Drawing photo3.jpeg" alt="Drawing 3">
-    <div class="gallery-item-overlay"><div class="gallery-item-label">Drawing 3</div></div>
-  </div>
-  <div class="gallery-item" data-type="painting">
-    <img src="Drawing photo4.jpeg" alt="Drawing 4">
-    <div class="gallery-item-overlay"><div class="gallery-item-label">Drawing 4</div></div>
-  </div>
+    <!-- DRAWINGS — spaces encoded as %20 -->
+    <div class="gallery-item" data-type="drawing" onclick="openLB(this)">
+      <img src="ART%2023.jpeg" alt="Art 23">
+      <div class="gallery-item-overlay"><div class="gallery-item-label">Art 23</div></div>
+    </div>
+    <div class="gallery-item" data-type="drawing" onclick="openLB(this)">
+      <img src="Drawing%2024.jpeg" alt="Drawing 24">
+      <div class="gallery-item-overlay"><div class="gallery-item-label">Drawing 24</div></div>
+    </div>
+    <div class="gallery-item" data-type="drawing" onclick="openLB(this)">
+      <img src="Drawing%20photo%2015.jpeg" alt="Drawing 15">
+      <div class="gallery-item-overlay"><div class="gallery-item-label">Drawing 15</div></div>
+    </div>
+    <div class="gallery-item" data-type="drawing" onclick="openLB(this)">
+      <img src="Drawing%20photo%2016.jpeg" alt="Drawing 16">
+      <div class="gallery-item-overlay"><div class="gallery-item-label">Drawing 16</div></div>
+    </div>
+    <div class="gallery-item" data-type="drawing" onclick="openLB(this)">
+      <img src="Drawing%20photo%2017.jpeg" alt="Drawing 17">
+      <div class="gallery-item-overlay"><div class="gallery-item-label">Drawing 17</div></div>
+    </div>
+    <div class="gallery-item" data-type="drawing" onclick="openLB(this)">
+      <img src="Drawing%20photo%2018.jpeg" alt="Drawing 18">
+      <div class="gallery-item-overlay"><div class="gallery-item-label">Drawing 18</div></div>
+    </div>
+    <div class="gallery-item" data-type="drawing" onclick="openLB(this)">
+      <img src="Drawing%20photo12.jpeg" alt="Drawing 12">
+      <div class="gallery-item-overlay"><div class="gallery-item-label">Drawing 12</div></div>
+    </div>
+    <div class="gallery-item" data-type="drawing" onclick="openLB(this)">
+      <img src="Drawing%20photo26.jpeg" alt="Drawing 26">
+      <div class="gallery-item-overlay"><div class="gallery-item-label">Drawing 26</div></div>
+    </div>
+    <div class="gallery-item" data-type="drawing" onclick="openLB(this)">
+      <img src="Drawing%20photo3.jpeg" alt="Drawing 3">
+      <div class="gallery-item-overlay"><div class="gallery-item-label">Drawing 3</div></div>
+    </div>
+    <div class="gallery-item" data-type="drawing" onclick="openLB(this)">
+      <img src="Drawing%20photo4.jpeg" alt="Drawing 4">
+      <div class="gallery-item-overlay"><div class="gallery-item-label">Drawing 4</div></div>
+    </div>
 
-  <!-- PAINTINGS -->
-  <div class="gallery-item" data-type="painting">
-    <img src="Painting photo1.jpeg" alt="Painting 1">
-    <div class="gallery-item-overlay"><div class="gallery-item-label">Painting 1</div></div>
-  </div>
-  <div class="gallery-item" data-type="painting">
-    <img src="Painting photo2.jpeg" alt="Painting 2">
-    <div class="gallery-item-overlay"><div class="gallery-item-label">Painting 2</div></div>
-  </div>
-  <div class="gallery-item" data-type="painting">
-    <img src="Painting photo3.jpeg" alt="Painting 3">
-    <div class="gallery-item-overlay"><div class="gallery-item-label">Painting 3</div></div>
-  </div>
-  <div class="gallery-item" data-type="painting">
-    <img src="Painting photo4.jpeg" alt="Painting 4">
-    <div class="gallery-item-overlay"><div class="gallery-item-label">Painting 4</div></div>
-  </div>
-  <div class="gallery-item" data-type="painting">
-    <img src="Painting photo5.jpeg" alt="Painting 5">
-    <div class="gallery-item-overlay"><div class="gallery-item-label">Painting 5</div></div>
-  </div>
-  <div class="gallery-item" data-type="painting">
-    <img src="Painting photo6.jpeg" alt="Painting 6">
-    <div class="gallery-item-overlay"><div class="gallery-item-label">Painting 6</div></div>
-  </div>
-  <div class="gallery-item" data-type="painting">
-    <img src="Painting photo7.jpeg" alt="Painting 7">
-    <div class="gallery-item-overlay"><div class="gallery-item-label">Painting 7</div></div>
-  </div>
-  <div class="gallery-item" data-type="painting">
-    <img src="Painting photo8.jpeg" alt="Painting 8">
-    <div class="gallery-item-overlay"><div class="gallery-item-label">Painting 8</div></div>
-  </div>
-  <div class="gallery-item" data-type="painting">
-    <img src="Painting photo9.jpeg" alt="Painting 9">
-    <div class="gallery-item-overlay"><div class="gallery-item-label">Painting 9</div></div>
-  </div>
-  <div class="gallery-item" data-type="painting">
-    <img src="Painting photo10.jpeg" alt="Painting 10">
-    <div class="gallery-item-overlay"><div class="gallery-item-label">Painting 10</div></div>
-  </div>
-  <div class="gallery-item" data-type="painting">
-    <img src="Painting photo 11.jpeg" alt="Painting 11">
-    <div class="gallery-item-overlay"><div class="gallery-item-label">Painting 11</div></div>
-  </div>
-  <div class="gallery-item" data-type="painting">
-    <img src="Painting photo12.jpeg" alt="Painting 12">
-    <div class="gallery-item-overlay"><div class="gallery-item-label">Painting 12</div></div>
-  </div>
-  <div class="gallery-item" data-type="painting">
-    <img src="Painting photo 13.jpeg" alt="Painting 13">
-    <div class="gallery-item-overlay"><div class="gallery-item-label">Painting 13</div></div>
-  </div>
-  <div class="gallery-item" data-type="painting">
-    <img src="Painting photo 14.jpeg" alt="Painting 14">
-    <div class="gallery-item-overlay"><div class="gallery-item-label">Painting 14</div></div>
-  </div>
-  <div class="gallery-item" data-type="painting">
-    <img src="Painting photo 19.jpeg" alt="Painting 19">
-    <div class="gallery-item-overlay"><div class="gallery-item-label">Painting 19</div></div>
-  </div>
-  <div class="gallery-item" data-type="painting">
-    <img src="Painting photo 20.jpeg" alt="Painting 20">
-    <div class="gallery-item-overlay"><div class="gallery-item-label">Painting 20</div></div>
-  </div>
-  <div class="gallery-item" data-type="painting">
-    <img src="Painting photo 21.jpeg" alt="Painting 21">
-    <div class="gallery-item-overlay"><div class="gallery-item-label">Painting 21</div></div>
-  </div>
-  <div class="gallery-item" data-type="painting">
-    <img src="Painting photo 22.jpeg" alt="Painting 22">
-    <div class="gallery-item-overlay"><div class="gallery-item-label">Painting 22</div></div>
-  </div>
-  <div class="gallery-item" data-type="painting">
-    <img src="Painting photo25.jpeg" alt="Painting 25">
-    <div class="gallery-item-overlay"><div class="gallery-item-label">Painting 25</div></div>
-  </div>
+    <!-- PAINTINGS — spaces encoded as %20 -->
+    <div class="gallery-item" data-type="painting" onclick="openLB(this)">
+      <img src="Painting%20photo1.jpeg" alt="Painting 1">
+      <div class="gallery-item-overlay"><div class="gallery-item-label">Painting 1</div></div>
+    </div>
+    <div class="gallery-item" data-type="painting" onclick="openLB(this)">
+      <img src="Painting%20photo2.jpeg" alt="Painting 2">
+      <div class="gallery-item-overlay"><div class="gallery-item-label">Painting 2</div></div>
+    </div>
+    <div class="gallery-item" data-type="painting" onclick="openLB(this)">
+      <img src="Painting%20photo3.jpeg" alt="Painting 3">
+      <div class="gallery-item-overlay"><div class="gallery-item-label">Painting 3</div></div>
+    </div>
+    <div class="gallery-item" data-type="painting" onclick="openLB(this)">
+      <img src="Painting%20photo4.jpeg" alt="Painting 4">
+      <div class="gallery-item-overlay"><div class="gallery-item-label">Painting 4</div></div>
+    </div>
+    <div class="gallery-item" data-type="painting" onclick="openLB(this)">
+      <img src="Painting%20photo5.jpeg" alt="Painting 5">
+      <div class="gallery-item-overlay"><div class="gallery-item-label">Painting 5</div></div>
+    </div>
+    <div class="gallery-item" data-type="painting" onclick="openLB(this)">
+      <img src="Painting%20photo6.jpeg" alt="Painting 6">
+      <div class="gallery-item-overlay"><div class="gallery-item-label">Painting 6</div></div>
+    </div>
+    <div class="gallery-item" data-type="painting" onclick="openLB(this)">
+      <img src="Painting%20photo7.jpeg" alt="Painting 7">
+      <div class="gallery-item-overlay"><div class="gallery-item-label">Painting 7</div></div>
+    </div>
+    <div class="gallery-item" data-type="painting" onclick="openLB(this)">
+      <img src="Painting%20photo8.jpeg" alt="Painting 8">
+      <div class="gallery-item-overlay"><div class="gallery-item-label">Painting 8</div></div>
+    </div>
+    <div class="gallery-item" data-type="painting" onclick="openLB(this)">
+      <img src="Painting%20photo9.jpeg" alt="Painting 9">
+      <div class="gallery-item-overlay"><div class="gallery-item-label">Painting 9</div></div>
+    </div>
+    <div class="gallery-item" data-type="painting" onclick="openLB(this)">
+      <img src="Painting%20photo10.jpeg" alt="Painting 10">
+      <div class="gallery-item-overlay"><div class="gallery-item-label">Painting 10</div></div>
+    </div>
+    <div class="gallery-item" data-type="painting" onclick="openLB(this)">
+      <img src="Painting%20photo%2011.jpeg" alt="Painting 11">
+      <div class="gallery-item-overlay"><div class="gallery-item-label">Painting 11</div></div>
+    </div>
+    <div class="gallery-item" data-type="painting" onclick="openLB(this)">
+      <img src="Painting%20photo12.jpeg" alt="Painting 12">
+      <div class="gallery-item-overlay"><div class="gallery-item-label">Painting 12</div></div>
+    </div>
+    <div class="gallery-item" data-type="painting" onclick="openLB(this)">
+      <img src="Painting%20photo%2013.jpeg" alt="Painting 13">
+      <div class="gallery-item-overlay"><div class="gallery-item-label">Painting 13</div></div>
+    </div>
+    <div class="gallery-item" data-type="painting" onclick="openLB(this)">
+      <img src="Painting%20photo%2014.jpeg" alt="Painting 14">
+      <div class="gallery-item-overlay"><div class="gallery-item-label">Painting 14</div></div>
+    </div>
+    <div class="gallery-item" data-type="painting" onclick="openLB(this)">
+      <img src="Painting%20photo%2019.jpeg" alt="Painting 19">
+      <div class="gallery-item-overlay"><div class="gallery-item-label">Painting 19</div></div>
+    </div>
+    <div class="gallery-item" data-type="painting" onclick="openLB(this)">
+      <img src="Painting%20photo%2020.jpeg" alt="Painting 20">
+      <div class="gallery-item-overlay"><div class="gallery-item-label">Painting 20</div></div>
+    </div>
+    <div class="gallery-item" data-type="painting" onclick="openLB(this)">
+      <img src="Painting%20photo%2021.jpeg" alt="Painting 21">
+      <div class="gallery-item-overlay"><div class="gallery-item-label">Painting 21</div></div>
+    </div>
+    <div class="gallery-item" data-type="painting" onclick="openLB(this)">
+      <img src="Painting%20photo%2022.jpeg" alt="Painting 22">
+      <div class="gallery-item-overlay"><div class="gallery-item-label">Painting 22</div></div>
+    </div>
+    <div class="gallery-item" data-type="painting" onclick="openLB(this)">
+      <img src="Painting%20photo25.jpeg" alt="Painting 25">
+      <div class="gallery-item-overlay"><div class="gallery-item-label">Painting 25</div></div>
+    </div>
 
-</div>
   </div>
 </section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" onclick="closeLB()">✕</button>
+  <button class="lb-nav lb-prev" onclick="shiftLB(-1)">&#8592;</button>
+  <img id="lb-img" src="" alt="">
+  <button class="lb-nav lb-next" onclick="shiftLB(1)">&#8594;</button>
+  <div class="lb-caption" id="lb-cap"></div>
+</div>
 
 <!-- THOUGHTS -->
 <div id="thoughts">
@@ -523,9 +499,9 @@
     <h2>Say <em>Hello</em></h2>
     <p class="section-sub" style="margin:0 auto;">Whether it's a professional opportunity, a collaboration, or just a friendly chat — I'd love to hear from you.</p>
     <div class="contact-card">
-      <p style="font-family:'Playfair Display',serif; font-size:1.3rem; margin-bottom:0.3rem;">marupakaanusha96@gmail.com</p>
-      <p style="color:var(--muted); font-size:0.9rem; margin-bottom:0.2rem;">Mobile: +91 8919552968</p>
-      <p style="color:var(--muted); font-size:0.85rem;">Hyderabad, India</p>
+      <p style="font-family:'Playfair Display',serif;font-size:1.3rem;margin-bottom:0.3rem;">marupakaanusha96@gmail.com</p>
+      <p style="color:var(--muted);font-size:0.9rem;margin-bottom:0.2rem;">Mobile: +91 8919552968</p>
+      <p style="color:var(--muted);font-size:0.85rem;">Hyderabad, India</p>
       <div class="contact-links">
         <a href="https://www.linkedin.com/in/marupaka-anusha-9448a4239/" class="contact-link" target="_blank">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
@@ -546,28 +522,65 @@
 
 <footer>
   <p>Designed with ❤️ by <span style="color:var(--gold);">Marupaka Anusha</span> · Hyderabad · <span id="year"></span></p>
-  <p style="margin-top:0.4rem; font-size:0.72rem;">Hosted free on <a href="https://pages.github.com" target="_blank" style="color:var(--gold); text-decoration:none;">GitHub Pages</a></p>
+  <p style="margin-top:0.4rem;font-size:0.72rem;">Hosted free on <a href="https://pages.github.com" target="_blank" style="color:var(--gold);text-decoration:none;">GitHub Pages</a></p>
 </footer>
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ── Gallery filter ── */
   function filterGallery(type, btn) {
     document.querySelectorAll('.gtab').forEach(t => t.classList.remove('active'));
     btn.classList.add('active');
     document.querySelectorAll('.gallery-item').forEach(item => {
       item.style.display = (type === 'all' || item.dataset.type === type) ? '' : 'none';
     });
+    buildVisible();
   }
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; }
-    });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.thought-card, .timeline-item, .gallery-item').forEach(el => {
-    el.style.opacity = '0'; el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-    observer.observe(el);
+
+  /* ── Lightbox ── */
+  let visible = [], cur = 0;
+  function buildVisible() {
+    visible = Array.from(document.querySelectorAll('.gallery-item')).filter(el => el.style.display !== 'none');
+  }
+  function openLB(el) {
+    buildVisible();
+    cur = visible.indexOf(el);
+    showLB(cur);
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function showLB(i) {
+    const item = visible[i];
+    document.getElementById('lb-img').src = item.querySelector('img').src;
+    document.getElementById('lb-cap').textContent = item.querySelector('.gallery-item-label').textContent;
+  }
+  function shiftLB(d) { cur = (cur + d + visible.length) % visible.length; showLB(cur); }
+  function closeLB() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('lightbox').addEventListener('click', function(e){ if(e.target===this) closeLB(); });
+  document.addEventListener('keydown', function(e){
+    if(!document.getElementById('lightbox').classList.contains('open')) return;
+    if(e.key==='ArrowRight') shiftLB(1);
+    if(e.key==='ArrowLeft') shiftLB(-1);
+    if(e.key==='Escape') closeLB();
   });
+
+  /* ── Scroll animation ── */
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){ e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; }
+    });
+  }, {threshold:0.1});
+  document.querySelectorAll('.thought-card, .timeline-item, .gallery-item').forEach(el => {
+    el.style.opacity='0'; el.style.transform='translateY(20px)';
+    el.style.transition='opacity 0.5s ease, transform 0.5s ease';
+    obs.observe(el);
+  });
+
+  buildVisible();
 </script>
 </body>
 </html>
